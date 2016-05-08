@@ -1,0 +1,21 @@
+{
+	"name": "jquery-checkboxreplacement-widget",
+	"version": "1.0.0",
+	"homepage": "http://piwigon.no-ip.org",
+	"authors": [
+		"Piwi Gon <piwi.gon@osnanet.de>"
+	],
+	"description": "A Plugin made for selecting month in a definable way.",
+	"main": "src/jquery.checkboxreplacement.widget.js",
+	"keywords": [
+		"jquery",
+		"plugin",
+		"widget",
+		"checkboxreplacement",
+		"jquery-plugin",
+		"jquery-widget",
+		"jquery-checkboxreplacement",
+		"jquery-checkboxreplacement-widget"
+	],
+	"license": "MIT"
+}

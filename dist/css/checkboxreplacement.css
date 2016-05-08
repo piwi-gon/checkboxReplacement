@@ -1,0 +1,22 @@
+@CHARSET "UTF-8";
+label.chkBxRplInit:before {
+    display:block;
+    background-color:lightgrey;
+    border:1px solid black;
+    border-radius: 4px;
+    text-align:center;
+    width: 50px;
+    heigth:32px;
+    color:black;
+    font-weight:bold;
+    content: "no";
+}
+
+label.chkBxRplChecked:before {
+    background-color:lightblue;
+    content: "yes";
+}
+
+label.chkBxRplDisabled:before {
+    opacity: 0.5;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/demo.css">
+    <link rel="stylesheet" href="../dist/css/checkboxreplacement.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <title>Insert title here</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="../dist/js/jquery.checkboxreplacement.widget.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#checkboxDefault').checkboxReplacementWidget();
+        $('#checkboxChecked').checkboxReplacementWidget({checked: true });
+        $('#checkboxDisabled').checkboxReplacementWidget({disabled: true });
+    });
+    </script>
+</head>
+<body>
+<div class="table" style="border:1px solid lightgrey;width:100%!important;">
+    <div class="trow">
+        <div class="tcell" style="vertical-align:middle;width:50%;border-bottom:1px solid lightgrey;">
+            This is the default checkbox<br>
+        </div>
+        <div class="tcell" style="vertical-align:middle;width:50%;border-bottom:1px solid lightgrey;">
+            <input type="checkbox" name="chkbxDefault" id="chkbxDefault" value="true">
+        </div>
+    </div>
+    <div class="trow">
+        <div class="tcell" style="vertical-align:middle;width:50%;border-bottom:1px solid lightgrey;">
+            This is the simplest example of this plugin<br>
+            it is be done with the default configuration<br>
+        </div>
+        <div class="tcell" style="vertical-align:middle;width:50%;border-bottom:1px solid lightgrey;">
+            <input type="checkbox" name="checkboxDefault" id="checkboxDefault" value="true">
+        </div>
+    </div>
+    <div class="trow">
+        <div class="tcell" style="vertical-align:middle;width:50%;border-bottom:1px solid lightgrey;">
+            This is the simplest example of this plugin<br>
+            it is be done with the default configuration but as checked checkbox<br>
+        </div>
+        <div class="tcell" style="vertical-align:middle;width:50%;border-bottom:1px solid lightgrey;">
+            <input type="checkbox" name="checkboxChecked" id="checkboxChecked" checked="checked" value="true">
+        </div>
+    </div>
+    <div class="trow">
+        <div class="tcell" style="vertical-align:middle;">
+            This is the simplest example of this plugin<br>
+            it is be done with the default configuration but as disabled checkbox<br>
+        </div>
+        <div class="tcell" style="vertical-align:middle;">
+            <input type="checkbox" name="checkboxDisabled" id="checkboxDisabled" checked="checked" disabled="disabled" value="true">
+        </div>
+    </div>
+</div>
+</body>
+</html>
