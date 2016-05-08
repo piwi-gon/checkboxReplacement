@@ -1,5 +1,5 @@
 
-# jQuery Widget monthSelectorWidget
+# jQuery Widget checkboxReplacementWidget
 
 this plugin/widget is used to build a Checkbox-Element-Replacement on a given selector
 
@@ -47,17 +47,3 @@ The basic structure of the project is given in the following way:
 ├── Gruntfile.js
 ├── bower.json
 └── package.json
-
-
-#### [demo/](https://github.com/jquery-boilerplate/boilerplate/tree/master/demo)
-
-Contains a simple HTML file to demonstrate your plugin.
-
-#### [dist/](https://github.com/jquery-boilerplate/boilerplate/tree/master/dist)
-
-This is where the generated files are stored once Grunt runs.
-
-#### [src/](https://github.com/jquery-boilerplate/boilerplate/tree/master/src)
-
-Contains the files responsible for your plugin, you can choose between JavaScript or CoffeeScript.
-
