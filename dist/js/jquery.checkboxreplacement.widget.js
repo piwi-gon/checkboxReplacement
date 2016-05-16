@@ -16,8 +16,9 @@ $.widget("ui.checkboxReplacementWidget", {
     version: "1.0.0",
     options: {
             elemId: "",
-            contentUnchecked: undefined,
-            contentChecked: undefined
+            contentUnchecked: "no",
+            contentChecked: "yes",
+            checked: false
             },
 
             _create: function() {
@@ -29,13 +30,35 @@ $.widget("ui.checkboxReplacementWidget", {
             },
 
             _init: function() {
+                /**
+                 * check if element has to be checked
+                 */
+                if(this.options.checked) { $('#'+this.elemId).attr('checked', 'checked'); }
                 this.elemToAddTo = this.element.parent();
-                var $labelContainer = $("<label />", {for: this.elemId,id: 'label'+this.elemId}).addClass('chkBxRplInit');
-                if($('#'+this.elemId).is(':checked')) { $labelContainer.addClass('chkBxRplChecked'); }
-                if(this.options['contentUnchecked'] != undefined) { $labelContainer.css({content: this.options.contentUnchecked}); }
-                if(this.options['contentChecked'] != undefined) { $labelContainer.css({content: this.options.contentChecked}); }
+                /**
+                 * adding a label for using as switch
+                 */
+                var $labelContainer = $("<label />", { for: this.elemId,id: 'label'+this.elemId});
+                /**
+                 * check for attribute
+                 */
+                if($('#'+this.elemId).is(':checked')) {
+                    console.log("is Checked: " + this.elemId + " -> "  + this.options.contentChecked);
+                    if(this._isHTML(this.options.contentUnchecked)) {
+                        $labelContainer.html(this.options.contentChecked).addClass('chkBxRplChecked');
+                    } else {
+                        $labelContainer.text(this.options.contentChecked).addClass('chkBxRplChecked');
+                    }
+                } else {
+                    if(this._isHTML(this.options.contentChecked)) {
+                        $labelContainer.html(this.options.contentUnchecked);
+                    } else {
+                        $labelContainer.text(this.options.contentUnchecked);
+                    }
+                }
                 if($('#'+this.elemId).is(':disabled')) { $labelContainer.addClass('chkBxRplDisabled'); }
                 this.elemToAddTo.append($labelContainer);
+                $labelContainer.addClass('chkBxRplInit');
                 this._adddEventHandler(this.element);
             },
 
@@ -53,12 +76,25 @@ $.widget("ui.checkboxReplacementWidget", {
                     click: function(event) {
                         if(!$('#'+this.elemId).is(':disabled')) {
                             if($('#'+this.elemId).is(':checked')) {
-                                $('#'+'label'+this.elemId).addClass('chkBxRplChecked');
+                                if(this._isHTML(this.options.contentChecked)) {
+                                    $('#'+'label'+this.elemId).html(this.options.contentChecked).addClass('chkBxRplChecked');
+                                } else {
+                                    $('#'+'label'+this.elemId).text(this.options.contentChecked).addClass('chkBxRplChecked');
+                                }
                             } else {
-                                $('#'+'label'+this.elemId).removeClass('chkBxRplChecked');
+                                if(this._isHTML(this.options.contentUnchecked)) {
+                                    $('#'+'label'+this.elemId).html(this.options.contentUnchecked).removeClass('chkBxRplChecked');
+                                } else {
+                                    $('#'+'label'+this.elemId).text(this.options.contentUnchecked).removeClass('chkBxRplChecked');
+                                }
                             }
                         }
                     }
                 });
+            },
+
+            _isHTML: function (str) {
+                var doc = new DOMParser().parseFromString(str, "text/html");
+                return Array.from(doc.body.childNodes).some(node => node.nodeType === 1);
             }
 });

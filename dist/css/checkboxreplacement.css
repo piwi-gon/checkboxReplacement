@@ -1,5 +1,5 @@
 @CHARSET "UTF-8";
-label.chkBxRplInit:before {
+label.chkBxRplInit {
     display:block;
     background-color:lightgrey;
     border:1px solid black;
@@ -9,14 +9,13 @@ label.chkBxRplInit:before {
     heigth:32px;
     color:black;
     font-weight:bold;
-    content: "no";
 }
 
-label.chkBxRplChecked:before {
+label.chkBxRplChecked {
     background-color:lightblue;
-    content: "yes";
+    color:white;
 }
 
-label.chkBxRplDisabled:before {
+label.chkBxRplDisabled {
     opacity: 0.5;
 }
